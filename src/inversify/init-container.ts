@@ -9,11 +9,18 @@ export type ContainerInitializationStaticProvider = {
     interfaces.BindingToSyntax<unknown>["toConstantValue"]
   >[0];
 };
+export type ContainerInitializationDynamicProvider = {
+  provide: interfaces.ServiceIdentifier<unknown>;
+  useFactory: Parameters<
+    interfaces.BindingToSyntax<unknown>["toDynamicValue"]
+  >[0];
+};
 
 export interface ContainerInitializationOptions {
   providers?: Array<
     | ContainerInitializationProvider
     | ContainerInitializationStaticProvider
+    | ContainerInitializationDynamicProvider
   >;
 }
 
@@ -34,6 +41,15 @@ export function initContainer({
     )
     .forEach((provider) =>
       container.bind(provider.provide).toConstantValue(provider.useValue),
+    );
+  providers
+    ?.filter(
+      function (provider): provider is ContainerInitializationDynamicProvider {
+        return "useFactory" in provider;
+      },
+    )
+    .forEach((provider) =>
+      container.bind(provider.provide).toDynamicValue(provider.useFactory),
     );
 
   return container;
