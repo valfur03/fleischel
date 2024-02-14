@@ -27,6 +27,7 @@
     "inversify": "^6.0.2",
     "reflect-metadata": "^0.2.1",
     "rss-parser": "^3.13.0",
+    "transmission-promise": "^1.1.7",
     "winston": "^3.11.0"
   }
 }
