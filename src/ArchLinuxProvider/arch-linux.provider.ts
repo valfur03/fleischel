@@ -46,4 +46,8 @@ export class ArchLinuxProvider implements Provider {
     this.logger.verbose(`Got '${torrentUrl}' as the latest torrent's URL`);
     return torrentUrl;
   }
+
+  getCron() {
+    return { cronTime: "0 0 0 1 * *", timeZone: "Europe/Paris" };
+  }
 }
