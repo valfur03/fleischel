@@ -20,9 +20,21 @@ function watch(container: Container, jobs: Array<CronJob>) {
   };
 }
 
+function stop(container: Container, jobs: Array<CronJob>) {
+  return async () => {
+    const logger = container.get<Logger>(TYPES.Logger);
+
+    logger.info("Stopping service");
+
+    jobs.forEach((job) => {
+      job.stop();
+    });
+  };
+}
+
 export function createService(options: ContainerInitializationOptions) {
   const container = initContainer(options);
   const jobs = initJobs(container);
 
-  return { watch: watch(container, jobs) };
+  return { watch: watch(container, jobs), stop: stop(container, jobs) };
 }
