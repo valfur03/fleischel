@@ -11,6 +11,9 @@ dependencies:
   inversify:
     specifier: ^6.0.2
     version: 6.0.2
+  luxon:
+    specifier: ^3.4.4
+    version: 3.4.4
   reflect-metadata:
     specifier: ^0.2.1
     version: 0.2.1
@@ -25,6 +28,9 @@ dependencies:
     version: 3.11.0
 
 devDependencies:
+  '@types/luxon':
+    specifier: ^3.4.2
+    version: 3.4.2
   '@types/node':
     specifier: ^20.11.17
     version: 20.11.17
@@ -160,6 +166,10 @@ packages:
   /@types/luxon@3.3.8:
     resolution: {integrity: sha512-jYvz8UMLDgy3a5SkGJne8H7VA7zPV2Lwohjx0V8V31+SqAjNmurWMkk9cQhfvlcnXWudBpK9xPM1n4rljOcHYQ==}
     dev: false
+
+  /@types/luxon@3.4.2:
+    resolution: {integrity: sha512-TifLZlFudklWlMBfhubvgqTXRzLDI5pCbGa4P8a3wPyUQSW+1xQ5eDsreP9DWHX3tjq1ke96uYG/nwundroWcA==}
+    dev: true
 
   /@types/node@20.11.17:
     resolution: {integrity: sha512-QmgQZGWu1Yw9TDyAP9ZzpFJKynYNeOvwMJmaxABfieQoVoiVOS6MN1WSpqpRcbeA5+RW82kraAVxCCJg+780Qw==}

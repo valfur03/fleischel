@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/luxon": "^3.4.2",
     "@types/node": "^20.11.17",
     "@typescript-eslint/eslint-plugin": "^6.20.0",
     "@typescript-eslint/parser": "^6.20.0",
@@ -26,6 +27,7 @@
   "dependencies": {
     "cron": "^3.1.6",
     "inversify": "^6.0.2",
+    "luxon": "^3.4.4",
     "reflect-metadata": "^0.2.1",
     "rss-parser": "^3.13.0",
     "transmission-promise": "^1.1.7",
