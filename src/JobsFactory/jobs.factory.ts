@@ -98,6 +98,8 @@ export class JobsFactory {
   }
 
   initJobs(container: Container) {
+    this.logger.verbose("Initializing all jobs");
+
     return this.providersSymbol.map((provider) =>
       this.createCronJob(container, provider),
     );
