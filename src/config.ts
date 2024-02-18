@@ -1,3 +1,7 @@
+function parseIntWithDefault(string: string | undefined, defaultValue: number) {
+  return string === undefined ? defaultValue : parseInt(string);
+}
+
 export const config = {
   transmission: {
     host: process.env.TRANSMISSION_HOST,
