@@ -41,7 +41,7 @@ function stop(
 export function createService(options: ContainerInitializationOptions) {
   const container = initContainer(options);
   const jobsFactory = container.get<JobsFactory>(JobsFactory);
-  const jobs = jobsFactory.initJobs();
+  const jobs = jobsFactory.initJobs(container);
 
   return { watch: watch(container, jobs), stop: stop(container, jobs) };
 }
