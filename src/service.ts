@@ -5,8 +5,8 @@ import {
 import { TYPES } from "./inversify/types";
 import { Container } from "inversify";
 import { Logger } from "winston";
-import { initJobs } from "./jobs";
 import { CronJob } from "cron";
+import { JobsFactory } from "./JobsFactory/jobs.factory";
 
 function watch(container: Container, jobs: Array<CronJob>) {
   return async () => {
