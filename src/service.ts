@@ -5,8 +5,8 @@ import {
 import { TYPES } from "./inversify/types";
 import { Container } from "inversify";
 import { Logger } from "winston";
-import { initJobs } from "./jobs";
 import { CronJob } from "cron";
+import { JobsFactory } from "./JobsFactory/jobs.factory";
 
 function watch(container: Container, jobs: Array<CronJob>) {
   return async () => {
@@ -34,7 +34,8 @@ function stop(container: Container, jobs: Array<CronJob>) {
 
 export function createService(options: ContainerInitializationOptions) {
   const container = initContainer(options);
-  const jobs = initJobs(container);
+  const jobsFactory = container.get<JobsFactory>(JobsFactory);
+  const jobs = jobsFactory.initJobs();
 
   return { watch: watch(container, jobs), stop: stop(container, jobs) };
 }
