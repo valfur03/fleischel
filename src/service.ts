@@ -8,7 +8,10 @@ import { Logger } from "winston";
 import { CronJob } from "cron";
 import { JobsFactory } from "./JobsFactory/jobs.factory";
 
-function watch(container: Container, jobs: Array<CronJob>) {
+function watch(
+  container: Container,
+  jobs: Array<CronJob<null, CronJob<null, null>>>,
+) {
   return async () => {
     const logger = container.get<Logger>(TYPES.Logger);
 
@@ -20,7 +23,10 @@ function watch(container: Container, jobs: Array<CronJob>) {
   };
 }
 
-function stop(container: Container, jobs: Array<CronJob>) {
+function stop(
+  container: Container,
+  jobs: Array<CronJob<null, CronJob<null, null>>>,
+) {
   return async () => {
     const logger = container.get<Logger>(TYPES.Logger);
 
