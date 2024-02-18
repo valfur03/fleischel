@@ -34,7 +34,8 @@ function stop(container: Container, jobs: Array<CronJob>) {
 
 export function createService(options: ContainerInitializationOptions) {
   const container = initContainer(options);
-  const jobs = initJobs(container);
+  const jobsFactory = container.get<JobsFactory>(JobsFactory);
+  const jobs = jobsFactory.initJobs();
 
   return { watch: watch(container, jobs), stop: stop(container, jobs) };
 }
