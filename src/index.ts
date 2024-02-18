@@ -9,12 +9,14 @@ import { transmission } from "./inversify/providers/transmission";
 import { ArchLinuxProvider } from "./ArchLinuxProvider/arch-linux.provider";
 import { TransmissionAdapter } from "./TransmissionAdapter/transmission.adapter";
 import { createService } from "./service";
+import { TorrentsHistoryService } from "./TorrentsHistory/torrents-history.service";
 import { JobsFactory } from "./JobsFactory/jobs.factory";
 
 async function main() {
   const service = createService({
     providers: [
       JobsFactory,
+      TorrentsHistoryService,
       ArchLinuxProvider,
       TransmissionAdapter,
       { provide: TYPES.Logger, useValue: logger },
